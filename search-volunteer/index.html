@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Matching</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="registration" class="container">
+        <h1>Registrasi</h1>
+        <input type="text" id="reg-username" placeholder="Username" required>
+        <input type="email" id="reg-email" placeholder="Email" required>
+        <input type="password" id="reg-password" placeholder="Password" required>
+        <button onclick="register()">Register</button>
+        <p>Sudah punya akun? <a href="#" onclick="showLogin()">Login di sini</a></p>
+    </div>
+
+    <div id="login" class="container hidden">
+        <h1>Login</h1>
+        <input type="text" id="login-username" placeholder="Username" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <p>Belum punya akun? <a href="#" onclick="showRegistration()">Daftar di sini</a></p>
+    </div>
+
+    <div id="dashboard" class="container hidden">
+        <h1>Volunteer Matching</h1>
+        <h2>Aksi Baik Berawal dari Niat Yang Baik</h2>
+        <p style="text-align: center;">Volunteer Matching hadir sebagai solusi bagi kamu yang ingin menemukan dan bergabung dalam berbagai kegiatan relawan. Kami menyediakan informasi lengkap dan terkini mengenai berbagai kegiatan volunteer, mulai dari bidang sosial, lingkungan, kesehatan, hingga pendidikan. Melalui platform ini, kamu dapat:
+            Menjelajahi kegiatan volunteer yang tersedia.
+            Mendaftar dengan mudah untuk kegiatan yang sesuai dengan minat dan keahlianmu.
+            Membangun koneksi dengan sesama relawan dan komunitas.
+            Temukan kesempatan berharga, berkontribusi, dan berbuat baik bersama Volunteer Matching!
+            </p>
+        <div class="stats">
+            <div class="stats-item">
+                <img src="assets/volunteer.png" alt="Volunteer Icon" width="30px" height="30px">
+                Jumlah Volunteer: <strong>345.871</strong>
+            </div>
+            <div class="stats-item">
+                <img src="assets/organization.png" alt="Organization Icon" width="30px" height="30px">
+                Jumlah Organisasi: <strong>7.965</strong>
+            </div>
+            <div class="stats-item">
+                <img src="assets/activity.png" alt="Activity Icon" width="30px" height="30px">
+                Jumlah Aktivitas: <strong>14.654</strong>
+            </div>
+        </div>
+        <h2>Aktivitas Disarankan</h2>
+        <div class="activity">
+            <img src="assets/tinydailyfolks.png" width="150px" alt="Aktivitas 1">
+            <h3>Tiny Daily Folks</h3>
+            <p>Penyelenggara: OMO! Market</p>
+            <p>Lokasi: Chillax Sudirman, South Jakarta</p>
+            <p>Waktu: 23 - 24 November 2024</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/pssi.png" width="150px" alt="Aktivitas 1">
+            <h3>AFC Asian Qualifiers Volunteer</h3>
+            <p>Penyelenggara: PSSI</p>
+            <p>Lokasi: Stadion Gelora Bung Karno</p>
+            <p>Waktu: 15 November dan 19 November 2024</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/ELN.png" width="150px" alt="Aktivitas 1">
+            <h3>Ekspedisi Langit Nusa</h3>
+            <p>Penyelenggara: Pejuang Voluntrip</p>
+            <p>Lokasi: Nusa Tenggara Timur</p>
+            <p>Waktu: 19 - 29 Januari 2025</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/serpihanmimpi2.png" width="150px" alt="Aktivitas 1">
+            <h3>Serpihan Mimpi 2</h3>
+            <p>Penyelenggara: miduconnect</p>
+            <p>Lokasi: Pesisir Trenggalek</p>
+            <p>Waktu: 4 Januari 2025</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <button onclick="showMoreActivities()">Lihat Aktivitas Lainnya</button>
+        <h2>Ayo Donasi</h2>
+        <p style="text-align: center;">Lewat fitur Ayo Donasi, Volunteer Matching memberi kesempatan bagi para relawan dan masyarakat luas untuk turut berkontribusi dalam mendukung berbagai kegiatan sosial. Donasi Anda akan membantu menyediakan sumber daya dan dukungan yang diperlukan untuk suksesnya setiap program volunteer yang ada, mulai dari pendidikan, kesehatan, hingga lingkungan.Dengan berdonasi, Anda bukan hanya menjadi saksi, tetapi juga bagian dari perubahan positif di sekitar kita. Setiap rupiah yang Anda sumbangkan dapat menjadi senyuman dan harapan baru bagi mereka yang terbantu. Mari bersama kita wujudkan misi kebaikan yang lebih besar.</p>
+        <button onclick="showDonation()">Donasi Sekarang</button>
+        <button onclick="backToLogin()">Kembali</button>
+    </div>
+
+    <div id="activities" class="container hidden">
+        <h1>Aktivitas</h1>
+        <div class="activity">
+            <img src="assets/tinydailyfolks.png" width="150px" alt="Aktivitas 1">
+            <h3>Tiny Daily Folks</h3>
+            <p>Penyelenggara: OMO! Market</p>
+            <p>Lokasi: Chillax Sudirman, South Jakarta</p>
+            <p>Waktu: 23 - 24 November 2024</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/pssi.png" width="150px" alt="Aktivitas 1">
+            <h3>AFC Asian Qualifiers Volunteer</h3>
+            <p>Penyelenggara: PSSI</p>
+            <p>Lokasi: Stadion Gelora Bung Karno</p>
+            <p>Waktu: 15 November dan 19 November 2024</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/ELN.png" width="150px" alt="Aktivitas 1">
+            <h3>Ekspedisi Langit Nusa</h3>
+            <p>Penyelenggara: Pejuang Voluntrip</p>
+            <p>Lokasi: Nusa Tenggara Timur</p>
+            <p>Waktu: 19 - 29 Januari 2025</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/serpihanmimpi2.png" width="150px" alt="Aktivitas 1">
+            <h3>Serpihan Mimpi 2</h3>
+            <p>Penyelenggara: miduconnect</p>
+            <p>Lokasi: Pesisir Trenggalek</p>
+            <p>Waktu: 4 Januari 2025</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/tinydailyfolks.png" width="150px" alt="Aktivitas 1">
+            <h3>Tiny Daily Folks</h3>
+            <p>Penyelenggara: OMO! Market</p>
+            <p>Lokasi: Chillax Sudirman, South Jakarta</p>
+            <p>Waktu: 23 - 24 November 2024</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/pssi.png" width="150px" alt="Aktivitas 1">
+            <h3>AFC Asian Qualifiers Volunteer</h3>
+            <p>Penyelenggara: PSSI</p>
+            <p>Lokasi: Stadion Gelora Bung Karno</p>
+            <p>Waktu: 15 November dan 19 November 2024</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/ELN.png" width="150px" alt="Aktivitas 1">
+            <h3>Ekspedisi Langit Nusa</h3>
+            <p>Penyelenggara: Pejuang Voluntrip</p>
+            <p>Lokasi: Nusa Tenggara Timur</p>
+            <p>Waktu: 19 - 29 Januari 2025</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <div class="activity">
+            <img src="assets/serpihanmimpi2.png" width="150px" alt="Aktivitas 1">
+            <h3>Serpihan Mimpi 2</h3>
+            <p>Penyelenggara: miduconnect</p>
+            <p>Lokasi: Pesisir Trenggalek</p>
+            <p>Waktu: 4 Januari 2025</p>
+            <button onclick="selectActivity()">Pilih</button>
+        </div>
+        <button onclick="backToDashboard()">Kembali</button>
+    </div>
+
+    <div id="activityDetail" class="container hidden">
+        <h1>Detail Aktivitas</h1>
+        <p>Deskripsi Aktivitas: Lorem ipsum dolor sit amet.</p>
+        <input type="text" placeholder="Nama Lengkap" required>
+        <input type="email" placeholder="Email" required>
+        <button onclick="apply()">Apply</button>
+        <button onclick="backToDashboard()">Kembali</button>
+    </div>
+
+    <div id="donation" class="container hidden">
+        <h1>Donasi</h1>
+        <input type="text" placeholder="Nama Lengkap" required>
+        <input type="number" placeholder="Nominal Donasi" required>
+        <button onclick="submitDonation()">Kirim Donasi</button>
+        <button onclick="backToDashboard()">Kembali</button>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('registration').classList.add('hidden');
+            document.getElementById('login').classList.remove('hidden');
+        }
+
+        function showRegistration() {
+            document.getElementById('login').classList.add('hidden');
+            document.getElementById('registration').classList.remove('hidden');
+        }
+
+        function register() {
+            const username = document.getElementById('reg-username').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+
+            localStorage .setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+            alert('Registrasi berhasil! Silakan login.');
+            showLogin();
+        }
+
+        function login() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            if (username === localStorage.getItem('username') && password === localStorage.getItem('password')) {
+                alert('Login berhasil!');
+                showDashboard();
+            } else {
+                alert('Username atau password salah!');
+            }
+        }
+
+        function showDashboard() {
+            document.getElementById('login').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+        }
+
+        function selectActivity() {
+            alert('Aktivitas dipilih!');
+            // Arahkan ke halaman detail aktivitas
+            showActivityDetail();
+        }
+
+        function showActivityDetail() {
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('activityDetail').classList.remove('hidden');
+        }
+
+        function backToLogin(){
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('login').classList.remove('hidden')
+        }
+
+        function backToDashboard(){
+            document.getElementById('activityDetail').classList.add('hidden');
+            document.getElementById('activities').classList.add('hidden');
+            document.getElementById('donation').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+        }
+
+        function apply() {
+            alert('Berhasil Mendaftar');
+            showDashboard();
+        }
+
+        function showDonation() {
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('donation').classList.remove('hidden');
+        }
+
+        function submitDonation() {
+            alert('Donasi berhasil dikirim!');
+            showDashboard();
+        }
+
+        function showMoreActivities() {
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('activities').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
